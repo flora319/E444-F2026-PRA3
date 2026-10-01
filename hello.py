@@ -86,5 +86,13 @@ def chat():
     return {'reply': reply}
 
 
+@app.route('/logout')
+def logout():
+    # Forget everything stored in this user's session, including the chatbot's
+    # memory, and go back to the Home page (no app restart needed)
+    session.clear()
+    return redirect(url_for('index'))
+
+
 if __name__ == '__main__':
     app.run(debug=True)
